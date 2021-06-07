@@ -9,6 +9,8 @@ module CandyCheck
       attr_reader :receipt_data
       # @return [String] the optional shared secret
       attr_reader :secret
+      # @return [Hash] the response
+      attr_reader :response
 
       # Constant for successful responses
       STATUS_OK = 0
