@@ -35,8 +35,6 @@ module CandyCheck
         end
       end
 
-      private
-
       def valid?
         @response && @response['status'] == STATUS_OK && @response['receipt']
       end
