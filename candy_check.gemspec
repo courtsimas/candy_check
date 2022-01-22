@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'google-apis-androidpublisher_v3', '~> 0.15.0'
   spec.add_dependency 'googleauth', '~> 1.0'
   spec.add_dependency 'multi_json', '~> 1.10'
-  spec.add_dependency 'thor', '~> 1.2.0'
+  spec.add_dependency 'thor', '>= 1.1.0'
 
   spec.add_development_dependency 'awesome_print'
   spec.add_development_dependency 'bundler', '~> 2.0'
