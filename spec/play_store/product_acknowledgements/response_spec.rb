@@ -5,15 +5,15 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Response do
     CandyCheck::PlayStore::ProductAcknowledgements::Response.new(result: result, error_data: error_data)
   end
 
-  describe '#acknowleged?' do
+  describe '#acknowledged?' do
     context 'when result present' do
       let(:result) { '' }
       let(:error_data)  { nil }
 
       it 'returns true' do
-        result = subject.acknowleged?
+        result = subject.acknowledged?
 
-        result.must_be_true
+        _(result).must_be_true
       end
     end
 
@@ -22,9 +22,9 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Response do
       let(:error_data)  { nil }
 
       it 'returns false' do
-        result = subject.acknowleged?
+        result = subject.acknowledged?
 
-        result.must_be_false
+        _(result).must_be_false
       end
     end
   end
@@ -47,8 +47,8 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Response do
       it 'returns the expected data' do
         result = subject.error
 
-        result[:status_code].must_equal(400)
-        result[:body].must_equal('A String describing the issue')
+        _(result[:status_code]).must_equal(400)
+        _(result[:body]).must_equal('A String describing the issue')
       end
     end
 
@@ -59,7 +59,7 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Response do
       it 'returns false' do
         result = subject.error
 
-        result.must_be_nil
+        _(result).must_be_nil
       end
     end
   end

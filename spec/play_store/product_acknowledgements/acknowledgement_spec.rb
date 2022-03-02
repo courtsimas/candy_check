@@ -17,13 +17,13 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Acknowledgement do
   let(:authorization) { CandyCheck::PlayStore.authorization(json_key_file) }
 
   describe "#call!" do
-    it "when acknowlegement succeeds" do
+    it "when acknowledgement succeeds" do
       VCR.use_cassette("play_store/product_acknowledgements/acknowledged") do
         result = subject.call!
 
-        result.must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
-        result.acknowleged?.must_be_true
-        result.error.must_be_nil
+        _(result).must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
+        _(result.acknowledged?).must_be_true
+        _(result.error).must_be_nil
       end
     end
     it "when already acknowledged" do
@@ -32,10 +32,10 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Acknowledgement do
       VCR.use_cassette("play_store/product_acknowledgements/already_acknowledged") do
         result = subject.call!
 
-        result.must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
-        result.acknowleged?.must_be_false
-        result.error[:body].must_equal(error_body)
-        result.error[:status_code].must_equal(400)
+        _(result).must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
+        _(result.acknowledged?).must_be_false
+        _(result.error[:body]).must_equal(error_body)
+        _(result.error[:status_code]).must_equal(400)
       end
     end
     it "when it has been refunded" do
@@ -44,10 +44,10 @@ describe CandyCheck::PlayStore::ProductAcknowledgements::Acknowledgement do
       VCR.use_cassette("play_store/product_acknowledgements/refunded") do
         result = subject.call!
 
-        result.must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
-        result.acknowleged?.must_be_false
-        result.error[:body].must_equal(error_body)
-        result.error[:status_code].must_equal(400)
+        _(result).must_be_instance_of CandyCheck::PlayStore::ProductAcknowledgements::Response
+        _(result.acknowledged?).must_be_false
+        _(result.error[:body]).must_equal(error_body)
+        _(result.error[:status_code]).must_equal(400)
       end
     end
   end
