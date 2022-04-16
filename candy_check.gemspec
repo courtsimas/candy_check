@@ -21,15 +21,15 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new(">= 2.5")
 
   spec.add_dependency "google-apis-androidpublisher_v3", "~> 0.6.0"
-  spec.add_dependency "googleauth", "~> 0.16"
-  spec.add_dependency "multi_json", "~> 1.10"
+  spec.add_dependency "googleauth", ">= 0.16", "< 2"
+  spec.add_dependency "multi_json", ">= 1.10", "< 2.0"
   spec.add_dependency "thor", "< 2.0"
 
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "coveralls", "~> 0.8"
   spec.add_development_dependency "inch", "~> 0.7"
-  spec.add_development_dependency "minitest", "~> 5.10"
-  spec.add_development_dependency "minitest-around", "~> 0.4"
+  spec.add_development_dependency "minitest"
+  spec.add_development_dependency "minitest-around"
   spec.add_development_dependency "minitest-focus"
   spec.add_development_dependency "rake", "~> 12.0"
   spec.add_development_dependency "rubocop", "~> 0.48"
